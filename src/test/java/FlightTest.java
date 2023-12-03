@@ -49,10 +49,11 @@ class FlightTest {
 
     @Test
     void testNotEnoughSeats() {
-        Flight smallFlight = new Flight("XY456", 1);https://chat.openai.com/c/494ca3db-a8f7-4918-9529-add049ae2caa
+        Flight smallFlight = new Flight("XY456", 1);
         Passenger passenger1 = new Passenger("ID001", "Alice", "CA");
         Passenger passenger2 = new Passenger("ID002", "Bob", "US");
         smallFlight.addPassenger(passenger1);
         assertThrows(RuntimeException.class, () -> smallFlight.addPassenger(passenger2));
     }
 }
+
