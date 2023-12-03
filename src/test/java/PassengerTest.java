@@ -6,78 +6,54 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class PassengerTest {
+cclass FlightTest {
 
-    private Passenger passenger;
+    private Flight flight;
 
     @BeforeEach
     void setUp() {
-        // Inicializa un objeto Passenger antes de cada prueba
-        passenger = new Passenger("ID123", "John Doe", "US");
+        // Initialize a Flight object before each test
+        flight = new Flight("AB123", 50);
     }
 
     @Test
-    void testJoinFlight() {
-        // Crea un vuelo
-        Flight flight = new Flight("AB123", 50);
+    void testGetFlightNumber() {
+        assertEquals("AB123", flight.getFlightNumber());
+    }
 
-        // Une al pasajero al vuelo
-        passenger.joinFlight(flight);
+    @Test
+    void testGetNumberOfPassengers() {
+        assertEquals(0, flight.getNumberOfPassengers());
+    }
 
-        // Verifica que el pasajero esté en el vuelo
-        assertEquals(flight, passenger.getFlight());
-        assertTrue(flight.getPassengers().contains(passenger));
+    @Test
+    void testAddPassenger() {
+        Passenger passenger = new Passenger("ID123", "John Doe", "US");
+        assertTrue(flight.addPassenger(passenger));
         assertEquals(1, flight.getNumberOfPassengers());
+        assertEquals(flight, passenger.getFlight());
     }
 
     @Test
-    void testJoinFlightWithPreviousFlight() {
-        // Crea dos vuelos
-        Flight previousFlight = new Flight("XY456", 50);
-        Flight newFlight = new Flight("AB123", 50);
-
-        // Une al pasajero al vuelo anterior
-        passenger.joinFlight(previousFlight);
-
-        // Verifica que el pasajero no esté en el nuevo vuelo
-        assertNull(passenger.getFlight());
-        assertFalse(newFlight.getPassengers().contains(passenger));
-
-        // Une al pasajero al nuevo vuelo
-        passenger.joinFlight(newFlight);
-
-        // Verifica que el pasajero esté en el nuevo vuelo y no en el anterior
-        assertEquals(newFlight, passenger.getFlight());
-        assertTrue(newFlight.getPassengers().contains(passenger));
-        assertEquals(1, newFlight.getNumberOfPassengers());
-        assertEquals(0, previousFlight.getNumberOfPassengers());
-    }
-
-    @Test
-    void testJoinFlightWithNullFlight() {
-        // Une al pasajero a un vuelo nulo
-        passenger.joinFlight(null);
-
-        // Verifica que el pasajero no esté en ningún vuelo
+    void testRemovePassenger() {
+        Passenger passenger = new Passenger("ID123", "John Doe", "US");
+        flight.addPassenger(passenger);
+        assertTrue(flight.removePassenger(passenger));
+        assertEquals(0, flight.getNumberOfPassengers());
         assertNull(passenger.getFlight());
     }
 
     @Test
-    void testJoinFlightRemovePassengerFailure() {
-        // Crea un vuelo
-        Flight flight = new Flight("AB123", 50);
-
-        // Hace que removePassenger falle intencionalmente
-        flight.setRemovePassengerShouldFail(true);
-
-        // Verifica que se lance una excepción al intentar unir al pasajero al vuelo
-        assertThrows(RuntimeException.class, () -> passenger.joinFlight(flight));
-        assertNull(passenger.getFlight());
+    void testInvalidFlightNumber() {
+        assertThrows(RuntimeException.class, () -> new Flight("InvalidNumber", 100));
     }
 
     @Test
-    void testGetCountryCode() {
-        // Verifica que el método getCountryCode devuelva el código de país correcto
-        assertEquals("US", passenger.getCountryCode());
+    void testNotEnoughSeats() {
+        Flight smallFlight = new Flight("XY456", 1);
+        Passenger passenger1 = new Passenger("ID001", "Alice", "CA");
+        Passenger passenger2 = new Passenger("ID002", "Bob", "US");
+        smallFlight.addPassenger(passenger1);
+        assertThrows(RuntimeException.class, () -> smallFlight.addPassenger(passenger2));
     }
 }
