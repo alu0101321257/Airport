@@ -43,11 +43,9 @@ class FlightTest {
         assertNull(passenger.getFlight());
     }
 
-   @Test
+    @Test
     void testInvalidFlightNumber() {
-        assertThrows(RuntimeException.class, () -> {
-            new Flight("InvalidNumber", 100);
-        });
+        assertThrows(RuntimeException.class, () -> new Flight("InvalidNumber", 100));
     }
 
     @Test
