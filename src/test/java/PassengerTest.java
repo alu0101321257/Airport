@@ -1,9 +1,9 @@
+package es.ull.passengers;
 import es.ull.flights.Flight;
+
+import es.ull.passengers.Passenger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Locale;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PassengerTest {
