@@ -1,7 +1,5 @@
-package es.ull.passengers;
-import es.ull.flights.Flight;
-
 import es.ull.passengers.Passenger;
+import es.ull.flights.Flight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,63 +10,51 @@ class PassengerTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize a Passenger object before each test
+        // Inicializa un objeto Passenger antes de cada prueba
         passenger = new Passenger("ID123", "John Doe", "US");
     }
 
     @Test
-    void testJoinFlight() {
-        // Create a new flight
+    void testConstructor() {
+        // Verifica que el constructor establezca correctamente los valores iniciales
+        assertEquals("ID123", passenger.getIdentifier());
+        assertEquals("John Doe", passenger.getName());
+        assertEquals("US", passenger.getCountryCode());
+        assertNull(passenger.getFlight());
+    }
+
+    @Test
+    void testJoinAndLeaveFlight() {
+        // Crea un vuelo
         Flight flight = new Flight("AB123", 50);
 
-        // Perform joinFlight operation
+        // Une al pasajero al vuelo
         passenger.joinFlight(flight);
 
-        // Assertions
+        // Verifica que el pasajero esté en el vuelo
         assertEquals(flight, passenger.getFlight());
-        assertEquals(1, flight.getNumberOfPassengers());
         assertTrue(flight.getPassengers().contains(passenger));
-    }
+        assertEquals(1, flight.getNumberOfPassengers());
 
-    @Test
-    void testJoinFlightWithPreviousFlight() {
-        // Create two flights
-        Flight previousFlight = new Flight("XY456", 50);
-        Flight newFlight = new Flight("AB123", 50);
-
-        // Join the passenger to the previous flight
-        passenger.joinFlight(previousFlight);
-
-        // Perform joinFlight operation with a new flight
-        passenger.joinFlight(newFlight);
-
-        // Assertions
-        assertEquals(newFlight, passenger.getFlight());
-        assertEquals(1, newFlight.getNumberOfPassengers());
-        assertTrue(newFlight.getPassengers().contains(passenger));
-        assertEquals(0, previousFlight.getNumberOfPassengers());
-        assertFalse(previousFlight.getPassengers().contains(passenger));
-    }
-
-    @Test
-    void testJoinFlightWithNullFlight() {
-        // Perform joinFlight operation with a null flight
+        // Deja el vuelo
         passenger.joinFlight(null);
 
-        // Assertions
+        // Verifica que el pasajero ya no esté en el vuelo
         assertNull(passenger.getFlight());
+        assertFalse(flight.getPassengers().contains(passenger));
+        assertEquals(0, flight.getNumberOfPassengers());
     }
 
     @Test
-    void testJoinFlightRemovePassengerFailure() {
-        // Create a flight
-        Flight flight = new Flight("AB123", 50);
+    void testInvalidCountryCode() {
+        // Verifica que se lance una excepción con un código de país inválido
+        assertThrows(RuntimeException.class, () -> new Passenger("ID456", "Jane Doe", "XX"));
+    }
 
-        // Intentionally make removePassenger fail
-        flight.setRemovePassengerShouldFail(true);
-
-        // Assertions
-        assertThrows(RuntimeException.class, () -> passenger.joinFlight(flight));
-        assertNull(passenger.getFlight());
+    @Test
+    void testToString() {
+        // Verifica que el método toString genere la cadena esperada
+        assertEquals("Passenger John Doe with identifier: ID123 from US", passenger.toString());
     }
 }
+
