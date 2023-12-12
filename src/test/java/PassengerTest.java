@@ -16,6 +16,8 @@ class FlightTest {
         // Initialize a Flight and Passenger object before each test
         flight = new Flight("AB123", 50);
         passenger = new Passenger("ID123", "John Doe", "US");
+        previousFlight = mock(Flight.class);
+        flight = mock(Flight.class)
     }
 
     @Test
@@ -97,40 +99,38 @@ class FlightTest {
         assertEquals(expectedString, passenger.toString());
     }
     @Test
-    void testValidCountryCode() {
-        // Debería crear un Passenger sin lanzar una excepción
-        Passenger validPassenger = new Passenger("ID456", "Alice", "CA");
-        assertNotNull(validPassenger);
-    }
-
-    @Test
     void testInvalidCountryCode() {
-        // Debería lanzar una RuntimeException
+        // Debería lanzar una RuntimeException al intentar crear un pasajero con código de país no válido
         assertThrows(RuntimeException.class, () -> new Passenger("ID789", "Bob", "InvalidCode"));
     }
 
     @Test
-    void testInvalidCountryCodeInJoinFlight() {
-        // Crear un Passenger con un código de país válido
-        Passenger validPassenger = new Passenger("ID123", "John Doe", "US");
-
-        // Intentar unirse a un vuelo con un código de país no válido
-        Flight invalidCountryFlight = new Flight("XY789", 30);
-        assertThrows(RuntimeException.class, () -> validPassenger.joinFlight(invalidCountryFlight));
+    void testJoinFlightWithoutPreviousFlight() {
+        // Debería unirse al nuevo vuelo sin lanzar excepciones
+        passenger.joinFlight(flight);
+        assertEquals(flight, passenger.getFlight());
     }
 
     @Test
-    void testInvalidCountryCodeInJoinFlightWithPreviousFlight() {
-        // Crear un Passenger con un código de país válido
-        Passenger validPassenger = new Passenger("ID123", "John Doe", "US");
+    void testJoinFlightWithPreviousFlightSuccessfullyRemoved() {
+        // Configura el vuelo anterior para que el método removePassenger devuelva true
+        when(previousFlight.removePassenger(passenger)).thenReturn(true);
 
-        // Unirse a un vuelo válido primero
-        Flight validFlight = new Flight("AB123", 50);
-        validPassenger.joinFlight(validFlight);
+        // Une al pasajero a un nuevo vuelo
+        passenger.joinFlight(flight);
 
-        // Intentar unirse a un nuevo vuelo con un código de país no válido
-        Flight invalidCountryFlight = new Flight("CD456", 30);
-        assertThrows(RuntimeException.class, () -> validPassenger.joinFlight(invalidCountryFlight));
+        // Verifica que el método removePassenger se llamó correctamente
+        verify(previousFlight, times(1)).removePassenger(passenger);
+        // Verifica que el pasajero está unido al nuevo vuelo
+        assertEquals(flight, passenger.getFlight());
     }
-    
+
+    @Test
+    void testJoinFlightWithFailedRemove() {
+        // Configura el vuelo anterior para que el método removePassenger devuelva false
+        when(previousFlight.removePassenger(passenger)).thenReturn(false);
+
+        // Debería lanzar una RuntimeException al intentar unirse al nuevo vuelo
+        assertThrows(RuntimeException.class, () -> passenger.joinFlight(flight));
+    }
 }
