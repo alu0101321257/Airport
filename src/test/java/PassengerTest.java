@@ -17,6 +17,49 @@ class FlightTest {
         flight = new Flight("AB123", 50);
         passenger = new Passenger("ID123", "John Doe", "US");
     }
+    @Test
+    void testInvalidCountryCode() {
+        assertThrows(RuntimeException.class, () -> new Passenger("ID456", "Jane Doe", "XX"));
+    }
+
+    @Test
+    void testJoinFlightWithPreviousFlight() {
+        Flight previousFlight = new Flight("GH987", 10);
+        passenger.joinFlight(previousFlight);
+
+        // Try to join a new flight without removing from the previous flight
+        Flight newFlight = new Flight("IJ321", 15);
+        assertThrows(RuntimeException.class, () -> passenger.joinFlight(newFlight));
+    }
+
+    @Test
+    void testJoinFlightWithRemovedPassengerFailure() {
+        Flight otherFlight = new Flight("KL654", 25);
+        passenger.joinFlight(otherFlight);
+
+        // Remove passenger from the other flight
+        otherFlight.removePassenger(passenger);
+
+        // Ensure passenger is not successfully added to the new flight
+        Flight newFlight = new Flight("MN012", 30);
+        assertThrows(RuntimeException.class, () -> passenger.joinFlight(newFlight));
+    }
+
+    @Test
+    void testJoinFlightWithRemovedPassengerSuccess() {
+        Flight otherFlight = new Flight("OP345", 25);
+        passenger.joinFlight(otherFlight);
+
+        // Remove passenger from the other flight
+        otherFlight.removePassenger(passenger);
+
+        // Successfully join the new flight after removal from the previous flight
+        Flight newFlight = new Flight("QR678", 30);
+        passenger.joinFlight(newFlight);
+
+        assertEquals(newFlight, passenger.getFlight());
+    }
+    //pruebas nuevas
 
     @Test
     void testGetFlightNumber() {
