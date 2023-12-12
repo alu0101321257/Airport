@@ -22,14 +22,20 @@ class FlightTest {
         assertThrows(RuntimeException.class, () -> new Passenger("ID456", "Jane Doe", "XX"));
     }
 
+    
     @Test
     void testJoinFlightWithPreviousFlight() {
         Flight previousFlight = new Flight("GH987", 10);
         passenger.joinFlight(previousFlight);
-
+    
         // Try to join a new flight without removing from the previous flight
         Flight newFlight = new Flight("IJ321", 15);
+    
+        // Assert that RuntimeException is thrown
         assertThrows(RuntimeException.class, () -> passenger.joinFlight(newFlight));
+    
+        // Assert that the passenger is still in the previous flight
+        assertEquals(previousFlight, passenger.getFlight());
     }
 
     @Test
