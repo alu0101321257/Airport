@@ -96,4 +96,41 @@ class FlightTest {
         String expectedString = "Passenger John Doe with identifier: ID123 from US";
         assertEquals(expectedString, passenger.toString());
     }
+    @Test
+    void testValidCountryCode() {
+        // Debería crear un Passenger sin lanzar una excepción
+        Passenger validPassenger = new Passenger("ID456", "Alice", "CA");
+        assertNotNull(validPassenger);
+    }
+
+    @Test
+    void testInvalidCountryCode() {
+        // Debería lanzar una RuntimeException
+        assertThrows(RuntimeException.class, () -> new Passenger("ID789", "Bob", "InvalidCode"));
+    }
+
+    @Test
+    void testInvalidCountryCodeInJoinFlight() {
+        // Crear un Passenger con un código de país válido
+        Passenger validPassenger = new Passenger("ID123", "John Doe", "US");
+
+        // Intentar unirse a un vuelo con un código de país no válido
+        Flight invalidCountryFlight = new Flight("XY789", 30);
+        assertThrows(RuntimeException.class, () -> validPassenger.joinFlight(invalidCountryFlight));
+    }
+
+    @Test
+    void testInvalidCountryCodeInJoinFlightWithPreviousFlight() {
+        // Crear un Passenger con un código de país válido
+        Passenger validPassenger = new Passenger("ID123", "John Doe", "US");
+
+        // Unirse a un vuelo válido primero
+        Flight validFlight = new Flight("AB123", 50);
+        validPassenger.joinFlight(validFlight);
+
+        // Intentar unirse a un nuevo vuelo con un código de país no válido
+        Flight invalidCountryFlight = new Flight("CD456", 30);
+        assertThrows(RuntimeException.class, () -> validPassenger.joinFlight(invalidCountryFlight));
+    }
+    
 }
