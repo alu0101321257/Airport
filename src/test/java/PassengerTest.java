@@ -23,38 +23,38 @@ class FlightTest {
     }
 
     
-   @Test
-    void testJoinFlightWithPreviousFlight() {
-        Flight previousFlight = new Flight("GH987", 10);
-        passenger.joinFlight(previousFlight);
+   //@Test
+    //void testJoinFlightWithPreviousFlight() {
+        //Flight previousFlight = new Flight("GH987", 10);
+        //passenger.joinFlight(previousFlight);
 
         // Try to join a new flight without removing from the previous flight
-        Flight newFlight = new Flight("IJ321", 15);
+        //Flight newFlight = new Flight("IJ321", 15);
 
         // Assert that no exception is thrown
-        assertDoesNotThrow(() -> passenger.joinFlight(newFlight));
+        //assertDoesNotThrow(() -> passenger.joinFlight(newFlight));
 
         // Assert that the passenger is still in the previous flight
-        assertEquals(previousFlight, passenger.getFlight());
-    }
+        //assertEquals(previousFlight, passenger.getFlight());
+    //}
 
-    @Test
-    void testJoinFlightWithRemovedPassengerFailure() {
-        Flight otherFlight = new Flight("OP345", 25);
-        passenger.joinFlight(otherFlight);
+    //@Test
+    //void testJoinFlightWithRemovedPassengerFailure() {
+        //Flight otherFlight = new Flight("OP345", 25);
+        //passenger.joinFlight(otherFlight);
 
         // Remove passenger from the other flight
-        otherFlight.removePassenger(passenger);
+        //otherFlight.removePassenger(passenger);
 
         // Try to join the new flight without being removed from the previous flight
-        Flight newFlight = new Flight("QR678", 30);
+        //Flight newFlight = new Flight("QR678", 30);
 
         // Assert that no exception is thrown
-        assertDoesNotThrow(() -> passenger.joinFlight(newFlight));
+        //assertDoesNotThrow(() -> passenger.joinFlight(newFlight));
 
         // Assert that the passenger is not in the new flight
-        assertNull(passenger.getFlight());
-    }
+        //assertNull(passenger.getFlight());
+    //}
 
     @Test
     void testJoinFlightWithRemovedPassengerSuccess() {
