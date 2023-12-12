@@ -37,18 +37,23 @@ class FlightTest {
         // Assert that the passenger is still in the previous flight
         assertEquals(previousFlight, passenger.getFlight());
     }
-
+    
     @Test
     void testJoinFlightWithRemovedPassengerFailure() {
-        Flight otherFlight = new Flight("KL654", 25);
+        Flight otherFlight = new Flight("OP345", 25);
         passenger.joinFlight(otherFlight);
-
+    
         // Remove passenger from the other flight
         otherFlight.removePassenger(passenger);
-
-        // Ensure passenger is not successfully added to the new flight
-        Flight newFlight = new Flight("MN012", 30);
+    
+        // Try to join the new flight without being removed from the previous flight
+        Flight newFlight = new Flight("QR678", 30);
+    
+        // Assert that RuntimeException is thrown
         assertThrows(RuntimeException.class, () -> passenger.joinFlight(newFlight));
+    
+        // Assert that the passenger is not in the new flight
+        assertNull(passenger.getFlight());
     }
 
     @Test
