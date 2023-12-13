@@ -1,5 +1,6 @@
-User
-# uses: mattnotmitt/doxygen-action@411df0c62acb5b96b8a93d93a7bf4b753c47ea05
+ name: Doxygen Action
+  # You may pin to the exact commit or the version.
+  # uses: mattnotmitt/doxygen-action@411df0c62acb5b96b8a93d93a7bf4b753c47ea05
   uses: mattnotmitt/doxygen-action@1.9.5
   with:
     # Path to Doxyfile
@@ -7,9 +8,10 @@ User
     # Working directory
     working-directory: src
     # Generate latex documentation
-    enable-latex: false 
+    enable-latex: #
     # Extra alpine packages for the build environment
-    additional-packages: # optional, default is false  
+    additional-packages: # optional, default is 
+          
 
 
 
