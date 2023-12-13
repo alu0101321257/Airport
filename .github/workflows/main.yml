@@ -1,14 +1,25 @@
-            - name: Doxygen Action
-  # You may pin to the exact commit or the version.
-  # uses: mattnotmitt/doxygen-action@411df0c62acb5b96b8a93d93a7bf4b753c47ea05
-  uses: mattnotmitt/doxygen-action@1.9.5
-  with:
-    # Path to Doxyfile
-    doxyfile-path: # default is ./Doxyfile
-    # Working directory
-    working-directory: # default is .
-    # Generate latex documentation
-    enable-latex: # optional
-    # Extra alpine packages for the build environment
-    additional-packages: # optional, default is 
-          
+name: Generate and Deploy Doxygen Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create Doxyfile
+        run: echo "PROJECT_NAME = Airport\nINPUT = src\nOUTPUT_DIRECTORY = docs" > Doxyfile
+
+      - name: Doxygen Action
+        uses: mattnotmitt/doxygen-action@1.9.5
+        with:
+          doxyfile-path: ./Doxyfile
+          working-directory: src
+          enable-latex: false  # Cambia a true si necesitas documentación LaTeX
+
