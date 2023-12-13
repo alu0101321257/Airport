@@ -1,0 +1,13 @@
+# Project information
+PROJECT_NAME           = "Airport"
+PROJECT_NUMBER         = 1.0
+OUTPUT_DIRECTORY       = docs
+
+# Input sources
+INPUT                  = src
+FILE_PATTERNS          =  *.java
+
+# Configuration options
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
