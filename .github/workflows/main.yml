@@ -14,12 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create Doxyfile
-        run: echo "PROJECT_NAME = Airport\nINPUT = src\nOUTPUT_DIRECTORY = docs" > Doxyfile
+        run: echo "PROJECT_NAME = Airport\nOUTPUT_DIRECTORY = docs" > src/Doxyfile
 
       - name: Doxygen Action
         uses: mattnotmitt/doxygen-action@1.9.5
         with:
-          doxyfile-path: ./Doxyfile
+          doxyfile-path: src/Doxyfile
           working-directory: src
           enable-latex: false  # Cambia a true si necesitas documentación LaTeX
+
+
 
