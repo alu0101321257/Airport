@@ -36,6 +36,13 @@
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
     </properties>
+    <!-- Distribution Management Configuration -->
+    <distributionManagement>
+        <repository>
+            <id>Airport</id>
+            <url>https://github.com/alu0101321257/Airport.git</url>
+        </repository>
+    </distributionManagement>
 
     <!-- Reporting configuration -->
     <reporting>
