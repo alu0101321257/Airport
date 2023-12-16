@@ -34,7 +34,8 @@ public class Passenger {
     private Flight flight;
 
     /**
-     * Constructs a Passenger object with the specified identifier, name, and country code.
+     * Constructs a Passenger object with the specified:
+     * Identifier, name, and country code.
      *
      * @param newIdentifier   The unique identifier for the passenger.
      * @param newName         The name of the passenger.
@@ -93,7 +94,8 @@ public class Passenger {
      * Joins a new flight, leaving the previous one if applicable.
      *
      * @param newFlight The new flight to join.
-     * @throws RuntimeException If the passenger cannot be removed from the previous flight or added to the new one.
+     * @throws RuntimeException If the passenger cannot be removed 
+     * from the previous flight or added to the new one.
      */
     public void joinFlight(final Flight newFlight) {
         Flight previousFlight = this.flight;
