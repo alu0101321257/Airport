@@ -120,6 +120,11 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                 <groupId>org.jenkins-ci.plugins</groupId>
+                 <artifactId>dependency-check-jenkins-plugin</artifactId>
+                 <version>5.4.3</version>
+            </plugin>
 
             <!-- Plugin de Checkstyle para mantenimiento del estilo de codificación -->
             <!-- Comentario: Este plugin ayuda a mantener un estilo de codificación consistente. -->
