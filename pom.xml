@@ -82,6 +82,58 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Plugin de Checkstyle para mantenimiento del estilo de codificación -->
+            <!-- Comentario: Este plugin ayuda a mantener un estilo de codificación consistente. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Plugin de FindBugs para análisis estático en busca de bugs y problemas de rendimiento -->
+            <!-- Comentario: Este plugin identifica posibles problemas en el código antes de la ejecución. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.5</version>
+            </plugin>
+
+            <!-- Plugin de PMD para análisis estático en busca de posibles problemas y mala práctica -->
+            <!-- Comentario: Este plugin complementa las herramientas estándar de análisis estático. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.15.0</version>
+            </plugin>
+
+            <!-- Plugin de enforcer para aplicar reglas y políticas específicas del proyecto -->
+            <!-- Comentario: Este plugin asegura la coherencia del proyecto aplicando reglas específicas. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Reglas de enforcer -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
