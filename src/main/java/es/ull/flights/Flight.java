@@ -55,13 +55,15 @@ public class Passenger {
     private Flight flight;
 
     /**
-     * Constructs a Passenger object with the specified identifier, name, and country code.
+     * Constructs a Passenger object with the specified identifier
+     *name, and country code.
      * @param newIdentifier The unique identifier for the passenger.
      * @param newName The name of the passenger.
      * @param newCountryCode The country code of the passenger.
      * @throws RuntimeException If the provided country code is invalid.
      */
-    public Passenger(final String newIdentifier, final String newName, final String newCountryCode) {
+    public Passenger(final String newIdentifier, 
+                     final String newName, final String newCountryCode) {
         if (!Arrays.asList(Locale.getISOCountries()).contains(newCountryCode)) {
             throw new RuntimeException("Invalid country code");
         }
@@ -106,7 +108,8 @@ public class Passenger {
     /**
      * Joins a new flight, leaving the previous one if applicable.
      * @param newFlight The new flight to join.
-     * @throws RuntimeException If the passenger cannot be removed from the previous flight or added to the new one.
+     * @throws RuntimeException If the passenger cannot be 
+     *removed from the previous flight or added to the new one.
      */
     public void joinFlight(final Flight newFlight) {
         Flight previousFlight = this.flight;
@@ -137,6 +140,7 @@ public class Passenger {
      */
     @Override
     public String toString() {
-        return "Passenger " + getName() + " with identifier: " + getIdentifier() + " from " + getCountryCode();
+        return "Passenger " + getName() + " with identifier: " 
+            + getIdentifier() + " from " + getCountryCode();
     }
 }
