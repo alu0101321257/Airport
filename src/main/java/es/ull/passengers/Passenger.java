@@ -18,39 +18,32 @@
  *
  * ========================================================================
  */
-/**
- * @file Passenger.java
- * @brief This file contains the implementation of the Passenger class.
- */
-
 package es.ull.passengers;
 
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import es.ull.flights.Flight;
 
 /**
- * @class Passenger
- * @brief Represents a passenger with a unique identifier, name, and country code.
+ * Represents a passenger with a unique identifier, name, and country code.
  */
 public class Passenger {
 
-    private String identifier; ///< Unique identifier for the passenger.
-    private String name; ///< Name of the passenger.
-    private String countryCode; ///< Country code of the passenger.
-    private Flight flight; ///< The flight that the passenger is currently on.
+    private final String identifier; // Unique identifier for the passenger.
+    private final String name; // Name of the passenger.
+    private final String countryCode; // Country code of the passenger.
+    private Flight flight; // The flight that the passenger is currently on.
 
     /**
-     * @brief Constructs a Passenger object with the specified identifier, name, and country code.
-     * @param identifier The unique identifier for the passenger.
-     * @param name The name of the passenger.
+     * Constructs a Passenger object with the specified identifier, name, and country code.
+     * 
+     * @param identifier  The unique identifier for the passenger.
+     * @param name        The name of the passenger.
      * @param countryCode The country code of the passenger.
      * @throws RuntimeException If the provided country code is invalid.
      */
-    public Passenger(String identifier, String name, String countryCode) {
+    public Passenger(final String identifier, final String name, final String countryCode) {
         if (!Arrays.asList(Locale.getISOCountries()).contains(countryCode)) {
             throw new RuntimeException("Invalid country code");
         }
@@ -61,7 +54,8 @@ public class Passenger {
     }
 
     /**
-     * @brief Gets the identifier of the passenger.
+     * Gets the identifier of the passenger.
+     * 
      * @return The passenger identifier.
      */
     public String getIdentifier() {
@@ -69,7 +63,8 @@ public class Passenger {
     }
 
     /**
-     * @brief Gets the name of the passenger.
+     * Gets the name of the passenger.
+     * 
      * @return The passenger name.
      */
     public String getName() {
@@ -77,7 +72,8 @@ public class Passenger {
     }
 
     /**
-     * @brief Gets the country code of the passenger.
+     * Gets the country code of the passenger.
+     * 
      * @return The country code.
      */
     public String getCountryCode() {
@@ -85,7 +81,8 @@ public class Passenger {
     }
 
     /**
-     * @brief Gets the flight that the passenger is currently on.
+     * Gets the flight that the passenger is currently on.
+     * 
      * @return The current flight.
      */
     public Flight getFlight() {
@@ -93,12 +90,13 @@ public class Passenger {
     }
 
     /**
-     * @brief Joins a new flight, leaving the previous one if applicable.
+     * Joins a new flight, leaving the previous one if applicable.
+     * 
      * @param flight The new flight to join.
      * @throws RuntimeException If the passenger cannot be removed from the previous flight or added to the new one.
      */
-    public void joinFlight(Flight flight) {
-        Flight previousFlight = this.flight;
+    public void joinFlight(final Flight flight) {
+        final Flight previousFlight = this.flight;
         if (null != previousFlight) {
             if (!previousFlight.removePassenger(this)) {
                 throw new RuntimeException("Cannot remove passenger");
@@ -113,15 +111,17 @@ public class Passenger {
     }
 
     /**
-     * @brief Sets the current flight of the passenger.
+     * Sets the current flight of the passenger.
+     * 
      * @param flight The new flight.
      */
-    public void setFlight(Flight flight) {
+    public void setFlight(final Flight flight) {
         this.flight = flight;
     }
 
     /**
-     * @brief Returns a string representation of the passenger.
+     * Returns a string representation of the passenger.
+     * 
      * @return The string representation.
      */
     @Override
