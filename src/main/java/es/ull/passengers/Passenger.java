@@ -1,3 +1,6 @@
+/**
+ * This file contains the implementation of the Passenger class.
+ */
 package es.ull.passengers;
 
 import java.util.Arrays;
