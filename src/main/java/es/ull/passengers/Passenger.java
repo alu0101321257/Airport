@@ -128,9 +128,12 @@ public class Passenger {
      */
     @Override
     public String toString() {
-        return "Passenger " + getName() +
-                " with identifier: " + getIdentifier() +
-                " from " + getCountryCode();
+        return "Passenger " +
+                getName() +
+                " with identifier: " +
+                getIdentifier() +
+                " from " +
+                getCountryCode();
     }
 }
 
