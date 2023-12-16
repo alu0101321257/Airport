@@ -58,6 +58,37 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+                 
+            <!-- Maven JAR Plugin -->
+             <plugin>
+                 <artifactId>maven-jar-plugin</artifactId>
+                 <version>3.0.2</version>
+             </plugin>
+                 
+             <!-- Maven Install Plugin -->
+             <plugin>
+                 <artifactId>maven-install-plugin</artifactId>
+                 <version>2.5.2</version>
+             </plugin>
+                 
+             <!-- Maven Deploy Plugin -->
+             <plugin>
+                 <artifactId>maven-deploy-plugin</artifactId>
+                 <version>2.8.2</version>
+             </plugin>
+                 
+             <!-- Maven Site Plugin -->
+             <plugin>
+                 <artifactId>maven-site-plugin</artifactId>
+                 <version>3.7.1</version>
+             </plugin>
+                 
+             <!-- JavaFX Maven Plugin -->
+             <plugin>
+                 <groupId>org.openjfx</groupId>
+                 <artifactId>javafx-maven-plugin</artifactId>
+                 <version>0.0.5</version>
+             </plugin>
 
             <!-- JaCoCo Maven Plugin para generación de informes de cobertura -->
             <plugin>
@@ -143,6 +174,26 @@
                     </execution>
                 </executions>
             </plugin>
+                 <!-- Outputs a runnable jar file so students can show off their project :) -->
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-assembly-plugin</artifactId>
+                 <version>2.5.3</version>
+             </plugin>
+             <plugin>
+                      <!-- Plugin para análisis de seguridad de dependencias -->
+                      <groupId>org.owasp</groupId>
+                      <artifactId>dependency-check-maven</artifactId>
+                      <version>9.0.5</version>
+                      <executions>
+                          <execution>
+                              <goals>
+                                  <!-- Ejecuta el análisis de seguridad -->
+                                  <goal>check</goal>
+                              </goals>
+                          </execution>
+                      </executions>
+             </plugin>
         </plugins>
     </build>
 
