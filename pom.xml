@@ -105,7 +105,7 @@
                  <logViolationsToConsole>true</logViolationsToConsole>
                  <!-- Agrega la siguiente línea para ignorar el error de package-info.java -->
                  <suppressionsLocation>${project.basedir}/checkstyle-suppressions.xml</suppressionsLocation>
-                </configuration
+                </configuration>
             </plugin>
 
             <!-- Plugin de FindBugs para análisis estático en busca de bugs y problemas de rendimiento -->
