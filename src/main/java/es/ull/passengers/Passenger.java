@@ -94,8 +94,8 @@ public class Passenger {
      * Joins a new flight, leaving the previous one if applicable.
      *
      * @param newFlight The new flight to join.
-     * @throws RuntimeException If the passenger cannot be removed 
-     * from the previous flight or added to the new one.
+     * @throws RuntimeException If the passenger cannot be removed
+     *from the previous flight or added to the new one.
      */
     public void joinFlight(final Flight newFlight) {
         Flight previousFlight = this.flight;
@@ -128,7 +128,8 @@ public class Passenger {
      */
     @Override
     public String toString() {
-        return "Passenger " + getName() + " with identifier: " + getIdentifier() + " from " + getCountryCode();
+        return "Passenger " + getName() + " with identifier: " +
+                getIdentifier() + " from " + getCountryCode();
     }
 }
 
