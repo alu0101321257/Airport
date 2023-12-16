@@ -1,62 +1,67 @@
-/**
- * This file contains the implementation of the Passenger class.
+/*
+ * ========================================================================
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ========================================================================
  */
+/**
+ * @file Passenger.java
+ * @brief This file contains the implementation of the Passenger class.
+ */
+
 package es.ull.passengers;
 
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import es.ull.flights.Flight;
 
 /**
- * Represents a passenger with a unique identifier, name, and country code.
+ * @class Passenger
+ * @brief Represents a passenger with a unique identifier, name, and country code.
  */
 public class Passenger {
 
-    /**
-     * Unique identifier for the passenger.
-     */
-    private String identifier;
+    private String identifier; ///< Unique identifier for the passenger.
+    private String name; ///< Name of the passenger.
+    private String countryCode; ///< Country code of the passenger.
+    private Flight flight; ///< The flight that the passenger is currently on.
 
     /**
-     * Name of the passenger.
+     * @brief Constructs a Passenger object with the specified identifier, name, and country code.
+     * @param identifier The unique identifier for the passenger.
+     * @param name The name of the passenger.
+     * @param countryCode The country code of the passenger.
+     * @throws RuntimeException If the provided country code is invalid.
      */
-    private String name;
-
-    /**
-     * Country code of the passenger.
-     */
-    private String countryCode;
-
-    /**
-     * The flight that the passenger is currently on.
-     */
-    private Flight flight;
-
-    /**
-     * Constructs a Passenger object with the specified:
-     * Identifier, name, and country code.
-     *
-     * @param newIdentifier   The unique identifier for the passenger.
-     * @param newName         The name of the passenger.
-     * @param newCountryCode  The country code of the passenger.
-     * @throws IllegalArgumentException If the provided country code is invalid.
-     */
-    public Passenger(final String newIdentifier,
-                      final String newName,
-                      final String newCountryCode) {
-        if (!Arrays.asList(Locale.getISOCountries()).contains(newCountryCode)) {
-            throw new IllegalArgumentException("Invalid country code");
+    public Passenger(String identifier, String name, String countryCode) {
+        if (!Arrays.asList(Locale.getISOCountries()).contains(countryCode)) {
+            throw new RuntimeException("Invalid country code");
         }
 
-        this.identifier = newIdentifier;
-        this.name = newName;
-        this.countryCode = newCountryCode;
+        this.identifier = identifier;
+        this.name = name;
+        this.countryCode = countryCode;
     }
 
     /**
-     * Gets the identifier of the passenger.
-     *
+     * @brief Gets the identifier of the passenger.
      * @return The passenger identifier.
      */
     public String getIdentifier() {
@@ -64,8 +69,7 @@ public class Passenger {
     }
 
     /**
-     * Gets the name of the passenger.
-     *
+     * @brief Gets the name of the passenger.
      * @return The passenger name.
      */
     public String getName() {
@@ -73,8 +77,7 @@ public class Passenger {
     }
 
     /**
-     * Gets the country code of the passenger.
-     *
+     * @brief Gets the country code of the passenger.
      * @return The country code.
      */
     public String getCountryCode() {
@@ -82,8 +85,7 @@ public class Passenger {
     }
 
     /**
-     * Gets the flight that the passenger is currently on.
-     *
+     * @brief Gets the flight that the passenger is currently on.
      * @return The current flight.
      */
     public Flight getFlight() {
@@ -91,45 +93,39 @@ public class Passenger {
     }
 
     /**
-     * Joins a new flight, leaving the previous one if applicable.
-     *
-     * @param newFlight The new flight to join.
-     * @throws RuntimeException If the passenger cannot be removed
-     *from the previous flight or added to the new one.
+     * @brief Joins a new flight, leaving the previous one if applicable.
+     * @param flight The new flight to join.
+     * @throws RuntimeException If the passenger cannot be removed from the previous flight or added to the new one.
      */
-    public void joinFlight(final Flight newFlight) {
+    public void joinFlight(Flight flight) {
         Flight previousFlight = this.flight;
         if (null != previousFlight) {
             if (!previousFlight.removePassenger(this)) {
                 throw new RuntimeException("Cannot remove passenger");
             }
         }
-        setFlight(newFlight);
-        if (null != newFlight) {
-            if (!newFlight.addPassenger(this)) {
+        setFlight(flight);
+        if (null != flight) {
+            if (!flight.addPassenger(this)) {
                 throw new RuntimeException("Cannot add passenger");
             }
         }
     }
 
     /**
-     * Sets the current flight of the passenger.
-     *
-     * @param newFlight The new flight.
+     * @brief Sets the current flight of the passenger.
+     * @param flight The new flight.
      */
-    public void setFlight(final Flight newFlight) {
-        this.flight = newFlight;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     /**
-     * Returns a string representation of the passenger.
-     *
+     * @brief Returns a string representation of the passenger.
      * @return The string representation.
      */
     @Override
     public String toString() {
-        return "Passenger " + getName() + " with identifier: "
-                + getIdentifier() + " from " + getCountryCode();
+        return "Passenger " + getName() + " with identifier: " + getIdentifier() + " from " + getCountryCode();
     }
 }
-
