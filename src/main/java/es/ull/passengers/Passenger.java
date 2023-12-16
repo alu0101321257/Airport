@@ -1,7 +1,3 @@
-/**
- * This file contains the implementation of the Passenger class.
- */
-
 package es.ull.passengers;
 
 import java.util.Arrays;
@@ -36,12 +32,13 @@ public class Passenger {
 
     /**
      * Constructs a Passenger object with the specified identifier, name, and country code.
-     * @param newIdentifier The unique identifier for the passenger.
-     * @param newName The name of the passenger.
-     * @param newCountryCode The country code of the passenger.
+     *
+     * @param newIdentifier   The unique identifier for the passenger.
+     * @param newName         The name of the passenger.
+     * @param newCountryCode  The country code of the passenger.
      * @throws RuntimeException If the provided country code is invalid.
      */
-    public Passenger(String newIdentifier, String newName, String newCountryCode) {
+    public Passenger(final String newIdentifier, final String newName, final String newCountryCode) {
         if (!Arrays.asList(Locale.getISOCountries()).contains(newCountryCode)) {
             throw new RuntimeException("Invalid country code");
         }
@@ -53,6 +50,7 @@ public class Passenger {
 
     /**
      * Gets the identifier of the passenger.
+     *
      * @return The passenger identifier.
      */
     public String getIdentifier() {
@@ -61,6 +59,7 @@ public class Passenger {
 
     /**
      * Gets the name of the passenger.
+     *
      * @return The passenger name.
      */
     public String getName() {
@@ -69,6 +68,7 @@ public class Passenger {
 
     /**
      * Gets the country code of the passenger.
+     *
      * @return The country code.
      */
     public String getCountryCode() {
@@ -77,6 +77,7 @@ public class Passenger {
 
     /**
      * Gets the flight that the passenger is currently on.
+     *
      * @return The current flight.
      */
     public Flight getFlight() {
@@ -85,10 +86,11 @@ public class Passenger {
 
     /**
      * Joins a new flight, leaving the previous one if applicable.
+     *
      * @param newFlight The new flight to join.
      * @throws RuntimeException If the passenger cannot be removed from the previous flight or added to the new one.
      */
-    public void joinFlight(Flight newFlight) {
+    public void joinFlight(final Flight newFlight) {
         Flight previousFlight = this.flight;
         if (null != previousFlight) {
             if (!previousFlight.removePassenger(this)) {
@@ -105,14 +107,16 @@ public class Passenger {
 
     /**
      * Sets the current flight of the passenger.
+     *
      * @param newFlight The new flight.
      */
-    public void setFlight(Flight newFlight) {
+    public void setFlight(final Flight newFlight) {
         this.flight = newFlight;
     }
 
     /**
      * Returns a string representation of the passenger.
+     *
      * @return The string representation.
      */
     @Override
