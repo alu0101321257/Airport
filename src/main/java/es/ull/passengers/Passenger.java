@@ -39,11 +39,13 @@ public class Passenger {
      * @param newIdentifier   The unique identifier for the passenger.
      * @param newName         The name of the passenger.
      * @param newCountryCode  The country code of the passenger.
-     * @throws RuntimeException If the provided country code is invalid.
+     * @throws IllegalArgumentException If the provided country code is invalid.
      */
-    public Passenger(final String newIdentifier, final String newName, final String newCountryCode) {
+    public Passenger(final String newIdentifier,
+                      final String newName,
+                      final String newCountryCode) {
         if (!Arrays.asList(Locale.getISOCountries()).contains(newCountryCode)) {
-            throw new RuntimeException("Invalid country code");
+            throw new IllegalArgumentException("Invalid country code");
         }
 
         this.identifier = newIdentifier;
@@ -127,3 +129,4 @@ public class Passenger {
         return "Passenger " + getName() + " with identifier: " + getIdentifier() + " from " + getCountryCode();
     }
 }
+
