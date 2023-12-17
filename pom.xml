@@ -128,26 +128,22 @@
             <!-- Plugin de Checkstyle para mantenimiento del estilo de codificación -->
             <!-- Este plugin ayuda a mantener un estilo de codificación consistente. -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                 <configLocation>google_checks.xml</configLocation>
-                 <failsOnError>true</failsOnError>
-                 <consoleOutput>true</consoleOutput>
-                 <logViolationsToConsole>true</logViolationsToConsole>
-                 <!-- Agrega la siguiente línea para ignorar el error de package-info.java -->
-                 <suppressionsLocation>${project.basedir}/checkstyle-suppressions.xml</suppressionsLocation>
-                </configuration>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-checkstyle-plugin</artifactId>
+                     <version>3.1.2</version>
+                     <executions>
+                         <execution>
+                             <id>validate</id>
+                             <phase>validate</phase>
+                             <configuration>
+                                 <configLocation>checkstyle.xml</configLocation>
+                                 <!-- Puedes personalizar la configuración según tus necesidades -->
+                             </configuration>
+                             <goals>
+                                 <goal>check</goal>
+                             </goals>
+                         </execution>
+                     </executions>
             </plugin>
             <!-- Plugin de FindBugs para análisis estático en busca de bugs y problemas de rendimiento -->
             <!-- Este plugin identifica posibles problemas en el código antes de la ejecución. -->
