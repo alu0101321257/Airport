@@ -141,16 +141,12 @@
             <!-- Plugin de Checkstyle para mantenimiento del estilo de codificación -->
             <!-- Este plugin ayuda a mantener un estilo de codificación consistente. -->
            <plugin>
-                  <groupId>org.owasp</groupId>
-                  <artifactId>dependency-check-maven</artifactId>
-                  <version>6.0.3</version>
-                  <reportSets>
-                    <reportSet>
-                           <reports>
-                                    <report>aggregate</report>
-                           </reports>
-                    </reportSet>
-                  </reportSets>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-checkstyle-plugin</artifactId>
+                     <version>3.0.0</version>
+                     <configuration>
+                         <configLocation>checkstyle.xml</configLocation>
+                     </configuration>
            </plugin>
             <!-- Plugin de FindBugs para análisis estático en busca de bugs y problemas de rendimiento -->
             <!-- Este plugin identifica posibles problemas en el código antes de la ejecución. -->
