@@ -99,6 +99,19 @@
                  <artifactId>javafx-maven-plugin</artifactId>
                  <version>0.0.5</version>
              </plugin>
+             <!-- maven-clean-plugin se utiliza para limpiar archivos y directorios generados -->    
+             <plugin>
+                 <artifactId>maven-clean-plugin</artifactId>
+                 <version>3.1.0</version>
+             </plugin>
+             <plugin>
+                 <artifactId>maven-resources-plugin</artifactId>
+                 <version>3.0.2</version>
+            </plugin>
+            <plugin>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.9.0</version>
+            </plugin>
 
 
             <!-- JaCoCo Maven Plugin para generación de informes de cobertura -->
