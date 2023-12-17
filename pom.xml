@@ -37,6 +37,17 @@
         <sonar.language>java</sonar.language>
     </properties>
 
+         <distributionManagement>
+             <repository>
+                 <id>Airport</id>
+                 <url>https://github.com/alu0101321257/Airport.git</url>
+             </repository>
+             <snapshotRepository>
+                 <id>Airport</id>
+                 <url>https://github.com/alu0101321257/Airport.git</url>
+             </snapshotRepository>
+        </distributionManagement>
+
     <!-- Reporting configuration -->
     <reporting>
         <plugins>
