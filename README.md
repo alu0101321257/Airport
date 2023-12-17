@@ -1,3 +1,4 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/alu0101321257/Airport/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/alu0101321257/Airport/tree/main)
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=alu0101321257_Airport)](https://sonarcloud.io/summary/new_code?id=alu0101321257_Airport)
 # Airport
 **-Desarrollo de Pruebas Unitarias:** Deben desarrollar pruebas exhaustivas para las clases 'flights' y 'passengers' en el proyecto proporcionado. La elección del marco de pruebas JUnit es esencial para garantizar la robustez y confiabilidad del código.
