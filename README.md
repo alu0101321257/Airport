@@ -16,6 +16,8 @@ La gestión del ciclo de desarrollo se ha optimizado mediante la integración de
 **-Documentación con Doxygen:**
 Se ha incluido documentación generada por Doxygen para mejorar la comprensión del código y facilitar su mantenimiento. Los comentarios de Doxygen, incorporados directamente en el código fuente, ofrecen descripciones detalladas de clases, métodos y variables, así como sus relaciones. Esta documentación enriquece la calidad del proyecto al proporcionar información clara y accesible para futuros desarrolladores y colaboradores.
 
+**Link para la documentación:** https://alu0101321257.github.io/Airport/html/index
+
 **-Integración Continua con CircleCI:**
 Se ha configurado la integración continua utilizando CircleCI. Cada commit y pull request activa automáticamente la ejecución de pruebas unitarias y análisis de cobertura. Esto garantiza la detección temprana de posibles problemas y la validación constante de la calidad del código. La configuración de CircleCI se encuentra en el archivo de configuración .circleci/config.yml, lo que permite una fácil comprensión y modificación según sea necesario.
 
