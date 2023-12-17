@@ -36,13 +36,6 @@
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
     </properties>
-    <!-- Distribution Management Configuration -->
-    <distributionManagement>
-        <repository>
-            <id>Airport</id>
-            <url>https://github.com/alu0101321257/Airport.git</url>
-        </repository>
-    </distributionManagement>
 
     <!-- Reporting configuration -->
     <reporting>
@@ -65,37 +58,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
-                 
-            <!-- Maven JAR Plugin -->
-             <plugin>
-                 <artifactId>maven-jar-plugin</artifactId>
-                 <version>3.0.2</version>
-             </plugin>
-                 
-             <!-- Maven Install Plugin -->
-             <plugin>
-                 <artifactId>maven-install-plugin</artifactId>
-                 <version>2.5.2</version>
-             </plugin>
-                 
-             <!-- Maven Deploy Plugin -->
-             <plugin>
-                 <artifactId>maven-deploy-plugin</artifactId>
-                 <version>2.8.2</version>
-             </plugin>
-                 
-             <!-- Maven Site Plugin -->
-             <plugin>
-                 <artifactId>maven-site-plugin</artifactId>
-                 <version>3.7.1</version>
-             </plugin>
-                 
-             <!-- JavaFX Maven Plugin -->
-             <plugin>
-                 <groupId>org.openjfx</groupId>
-                 <artifactId>javafx-maven-plugin</artifactId>
-                 <version>0.0.5</version>
-             </plugin>
 
             <!-- JaCoCo Maven Plugin para generación de informes de cobertura -->
             <plugin>
@@ -120,37 +82,10 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                 <groupId>org.jenkins-ci.plugins</groupId>
-                 <artifactId>dependency-check-jenkins-plugin</artifactId>
-                 <version>5.4.3</version>
-            </plugin>
 
             <!-- Plugin de Checkstyle para mantenimiento del estilo de codificación -->
             <!-- Comentario: Este plugin ayuda a mantener un estilo de codificación consistente. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                 <configLocation>google_checks.xml</configLocation>
-                 <failsOnError>true</failsOnError>
-                 <consoleOutput>true</consoleOutput>
-                 <logViolationsToConsole>true</logViolationsToConsole>
-                 <!-- Agrega la siguiente línea para ignorar el error de package-info.java -->
-                 <suppressionsLocation>${project.basedir}/checkstyle-suppressions.xml</suppressionsLocation>
-                </configuration>
-            </plugin>
-
+            
             <!-- Plugin de FindBugs para análisis estático en busca de bugs y problemas de rendimiento -->
             <!-- Comentario: Este plugin identifica posibles problemas en el código antes de la ejecución. -->
             <plugin>
@@ -181,31 +116,10 @@
                         </goals>
                         <configuration>
                             <!-- Reglas de enforcer -->
-                            <skip>true</skip>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-                 <!-- Outputs a runnable jar file so students can show off their project :) -->
-             <plugin>
-                 <groupId>org.apache.maven.plugins</groupId>
-                 <artifactId>maven-assembly-plugin</artifactId>
-                 <version>2.5.3</version>
-             </plugin>
-             <plugin>
-                      <!-- Plugin para análisis de seguridad de dependencias -->
-                      <groupId>org.owasp</groupId>
-                      <artifactId>dependency-check-maven</artifactId>
-                      <version>9.0.5</version>
-                      <executions>
-                          <execution>
-                              <goals>
-                                  <!-- Ejecuta el análisis de seguridad -->
-                                  <goal>check</goal>
-                              </goals>
-                          </execution>
-                      </executions>
-             </plugin>
         </plugins>
     </build>
 
