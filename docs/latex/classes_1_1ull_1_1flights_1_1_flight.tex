@@ -1,0 +1,123 @@
+\doxysection{es.\+ull.\+flights.\+Flight Class Reference}
+\label{classes_1_1ull_1_1flights_1_1_flight}\index{es.ull.flights.Flight@{es.ull.flights.Flight}}
+
+
+Represents a flight with a unique flight number and a certain number of seats.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Flight} (String flight\+Number, int seats)
+\begin{DoxyCompactList}\small\item\em Constructs a Flight object with the specified flight number and number of seats. \end{DoxyCompactList}\item 
+String \textbf{ get\+Flight\+Number} ()
+\begin{DoxyCompactList}\small\item\em Gets the flight number of the flight. \end{DoxyCompactList}\item 
+int \textbf{ get\+Number\+Of\+Passengers} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of passengers currently booked on the flight. \end{DoxyCompactList}\item 
+boolean \textbf{ add\+Passenger} (Passenger passenger)
+\begin{DoxyCompactList}\small\item\em Adds a passenger to the flight. \end{DoxyCompactList}\item 
+boolean \textbf{ remove\+Passenger} (Passenger passenger)
+\begin{DoxyCompactList}\small\item\em Removes a passenger from the flight. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a flight with a unique flight number and a certain number of seats. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classes_1_1ull_1_1flights_1_1_flight_aa5ad30bdd0beaab1b4eee82226e14149} 
+\index{es.ull.flights.Flight@{es.ull.flights.Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!es.ull.flights.Flight@{es.ull.flights.Flight}}
+\doxysubsubsection{Flight()}
+{\footnotesize\ttfamily es.\+ull.\+flights.\+Flight.\+Flight (\begin{DoxyParamCaption}\item[{String}]{flight\+Number,  }\item[{int}]{seats }\end{DoxyParamCaption})}
+
+
+
+Constructs a Flight object with the specified flight number and number of seats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flight\+Number} & The unique identifier for the flight. \\
+\hline
+{\em seats} & The number of available seats on the flight. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Runtime\+Exception} & If the provided flight number is invalid. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classes_1_1ull_1_1flights_1_1_flight_af91e68d0b5783e3593f4dac614e8f6df} 
+\index{es.ull.flights.Flight@{es.ull.flights.Flight}!addPassenger@{addPassenger}}
+\index{addPassenger@{addPassenger}!es.ull.flights.Flight@{es.ull.flights.Flight}}
+\doxysubsubsection{addPassenger()}
+{\footnotesize\ttfamily boolean es.\+ull.\+flights.\+Flight.\+add\+Passenger (\begin{DoxyParamCaption}\item[{Passenger}]{passenger }\end{DoxyParamCaption})}
+
+
+
+Adds a passenger to the flight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passenger} & The passenger to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the passenger was successfully added, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Runtime\+Exception} & If there are not enough seats for the flight. \\
+\hline
+\end{DoxyExceptions}
+\label{classes_1_1ull_1_1flights_1_1_flight_a54acb8002451233c0627f67d7da6cdff} 
+\index{es.ull.flights.Flight@{es.ull.flights.Flight}!getFlightNumber@{getFlightNumber}}
+\index{getFlightNumber@{getFlightNumber}!es.ull.flights.Flight@{es.ull.flights.Flight}}
+\doxysubsubsection{getFlightNumber()}
+{\footnotesize\ttfamily String es.\+ull.\+flights.\+Flight.\+get\+Flight\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the flight number of the flight. 
+
+\begin{DoxyReturn}{Returns}
+The flight number. 
+\end{DoxyReturn}
+\label{classes_1_1ull_1_1flights_1_1_flight_a187a56be3a80aeed3f86f5af788cefe4} 
+\index{es.ull.flights.Flight@{es.ull.flights.Flight}!getNumberOfPassengers@{getNumberOfPassengers}}
+\index{getNumberOfPassengers@{getNumberOfPassengers}!es.ull.flights.Flight@{es.ull.flights.Flight}}
+\doxysubsubsection{getNumberOfPassengers()}
+{\footnotesize\ttfamily int es.\+ull.\+flights.\+Flight.\+get\+Number\+Of\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of passengers currently booked on the flight. 
+
+\begin{DoxyReturn}{Returns}
+The number of passengers. 
+\end{DoxyReturn}
+\label{classes_1_1ull_1_1flights_1_1_flight_aae162ee591aaab6ea905e8eb116b0b5a} 
+\index{es.ull.flights.Flight@{es.ull.flights.Flight}!removePassenger@{removePassenger}}
+\index{removePassenger@{removePassenger}!es.ull.flights.Flight@{es.ull.flights.Flight}}
+\doxysubsubsection{removePassenger()}
+{\footnotesize\ttfamily boolean es.\+ull.\+flights.\+Flight.\+remove\+Passenger (\begin{DoxyParamCaption}\item[{Passenger}]{passenger }\end{DoxyParamCaption})}
+
+
+
+Removes a passenger from the flight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passenger} & The passenger to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the passenger was successfully removed, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/es/ull/flights/\textbf{ Flight.\+java}\end{DoxyCompactItemize}

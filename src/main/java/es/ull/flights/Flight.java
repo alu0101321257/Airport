@@ -1,3 +1,35 @@
+/**
+ * @file Doxyfile
+ * @brief Configuración para la generación de documentación Doxygen.
+ *
+ * @mainpage Airport Project Documentation
+ *
+ * @section intro Introduction
+ *
+ * Airport Project comprises the development of unit tests for the 'flights' and 'passengers' classes, along with detailed documentation using the Doxygen tool. This documentation serves as a clear guide on the purpose, usage, and functionality of the classes, as well as their associated unit tests. Doxygen comments are seamlessly integrated into the source code, enhancing system comprehension and maintenance.
+ *
+ * @section coverage SonarCloud Code Coverage Evaluation
+ *
+ * A comprehensive analysis of unit test coverage has been conducted using SonarCloud. This process identifies specific areas of the code that may not have been addressed by the tests, providing valuable quality metrics. Detailed coverage information is available in the SonarCloud-generated report, offering a transparent view of the effectiveness of the implemented tests.
+ *
+ * @section maven Maven POM File Plugin Integration
+ *
+ * The development cycle management has been optimized through the integration of specific plugins in the Maven POM file. These plugins efficiently handle test execution and coverage analysis during the build process. Maven configuration has been enhanced to ensure code consistency and quality, simplifying project maintenance and collaboration.
+ *
+ * @section doxygen Doxygen Documentation
+ *
+ * Doxygen-generated documentation has been included to enhance code understanding and facilitate maintenance. Doxygen comments, embedded directly in the source code, provide detailed descriptions of classes, methods, and variables, as well as their relationships. This documentation enriches project quality by offering clear and accessible information for future developers and collaborators.
+ *
+ * @section circleci Continuous Integration with CircleCI
+ *
+ * Continuous integration has been configured using CircleCI. Each commit and pull request automatically triggers unit test execution and coverage analysis. This ensures early detection of potential issues and constant validation of code quality. CircleCI configuration is located in the .circleci/config.yml file, allowing easy comprehension and modification as needed.
+ *
+ * @section github Project Management on GitHub
+ *
+ * The project is hosted on GitHub, facilitating review and collaboration among team members. Transparent project progress management is achieved through effective use of branches, commits with descriptive messages, and pull request integration. This approach supports effective collaboration and clear tracking of software development.
+ */
+
+
 /*
  * ========================================================================
  *
