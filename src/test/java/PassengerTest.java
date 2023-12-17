@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 /**
- * @brief Test class for the Flight class.
+ * @brief Test class for the Passenger class.
  */
 class FlightTest {
     private Passenger passenger;
