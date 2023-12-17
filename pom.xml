@@ -104,22 +104,7 @@
 
             <!-- Plugin de enforcer para aplicar reglas y políticas específicas del proyecto -->
             <!-- Comentario: Este plugin asegura la coherencia del proyecto aplicando reglas específicas. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M3</version>
-                <executions>
-                    <execution>
-                        <id>enforce</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Reglas de enforcer -->
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            
         </plugins>
     </build>
 
