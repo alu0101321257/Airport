@@ -3,10 +3,23 @@
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=alu0101321257_Airport)](https://sonarcloud.io/summary/new_code?id=alu0101321257_Airport)
 # Airport
-**-Desarrollo de Pruebas Unitarias:** Deben desarrollar pruebas exhaustivas para las clases 'flights' y 'passengers' en el proyecto proporcionado. La elección del marco de pruebas JUnit es esencial para garantizar la robustez y confiabilidad del código.
 
-**-Evaluación de Cobertura con SonarCloud:** Les corresponde realizar un análisis detallado de la cobertura de las pruebas unitarias utilizando SonarCloud. Este proceso permitirá identificar áreas específicas del código que pueden no haber sido abordadas por las pruebas, proporcionando métricas valiosas de calidad.
+**-Desarrollo de Pruebas Unitarias:**
+De manera complementaria al desarrollo de pruebas unitarias para las clases 'flights' y 'passengers' en el proyecto proporcionado, se ha incorporado documentación detallada utilizando la herramienta Doxygen. Esta documentación proporciona una guía clara sobre el propósito, uso y funcionamiento de las clases, así como de las pruebas unitarias asociadas. Los comentarios de Doxygen se integran directamente en el código fuente, lo que facilita la comprensión y mantenimiento del sistema.
 
-**-Integración de Plugins en el Archivo POM de Maven:** La práctica incluye la integración de plugins específicos, previamente presentados en clases, en el archivo POM de Maven. El objetivo es optimizar la ejecución de pruebas y el análisis de cobertura durante el ciclo de desarrollo.
+**-Evaluación de Cobertura con SonarCloud:**
+Se ha llevado a cabo un análisis exhaustivo de la cobertura de las pruebas unitarias utilizando SonarCloud. Este proceso permite identificar áreas específicas del código que pueden no haber sido abordadas por las pruebas, brindando métricas valiosas de calidad. La información detallada de cobertura está disponible en el informe generado por SonarCloud, ofreciendo una visión transparente de la eficacia de las pruebas implementadas.
 
-**-Gestión del Proyecto en GitHub:** Se espera que el proyecto software esté disponible en un sistema de control de versiones, preferiblemente en GitHub. Esta decisión facilitará la revisión y colaboración entre ustedes, así como el seguimiento transparente del progreso del proyecto.
+**-Integración de Plugins en el Archivo POM de Maven:**
+La gestión del ciclo de desarrollo se ha optimizado mediante la integración de plugins específicos en el archivo POM de Maven. Estos plugins se encargan de la ejecución eficiente de pruebas y el análisis de cobertura durante el proceso de construcción. La configuración de Maven se ha mejorado para garantizar la coherencia y la calidad del código, facilitando así el mantenimiento y la colaboración en el proyecto.
+
+**-Documentación con Doxygen:**
+Se ha incluido documentación generada por Doxygen para mejorar la comprensión del código y facilitar su mantenimiento. Los comentarios de Doxygen, incorporados directamente en el código fuente, ofrecen descripciones detalladas de clases, métodos y variables, así como sus relaciones. Esta documentación enriquece la calidad del proyecto al proporcionar información clara y accesible para futuros desarrolladores y colaboradores.
+
+**-Integración Continua con CircleCI:**
+Se ha configurado la integración continua utilizando CircleCI. Cada commit y pull request activa automáticamente la ejecución de pruebas unitarias y análisis de cobertura. Esto garantiza la detección temprana de posibles problemas y la validación constante de la calidad del código. La configuración de CircleCI se encuentra en el archivo de configuración .circleci/config.yml, lo que permite una fácil comprensión y modificación según sea necesario.
+
+**-Gestión del Proyecto en GitHub:**
+El proyecto se encuentra disponible en GitHub, lo que facilita la revisión y colaboración entre los miembros del equipo. La gestión transparente del progreso del proyecto se logra mediante el uso efectivo de ramas, commits con mensajes descriptivos y la integración de pull requests. Este enfoque respalda una colaboración efectiva y un seguimiento claro del desarrollo del software.
+
+
