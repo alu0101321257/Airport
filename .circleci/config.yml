@@ -1,0 +1,28 @@
+version: 2.1
+setup: true
+orbs:
+  continuation: circleci/continuation@0.1.2
+
+jobs:
+  auto-create-config:
+    docker:
+      - image: circleci/circleci-inferconfig:latest
+    steps:
+      - checkout
+      - run: circleci-inferconfig > generated_config.yml
+      - continuation/continue:
+          configuration_path: generated_config.yml
+      - run:
+          name: Run Tests
+          command: |
+            # ... comandos para ejecutar tus pruebas y generar resultados en un directorio
+            mkdir -p ../target/surefire
+            # ... ejecutar pruebas y almacenar resultados en ../target/surefire
+
+      - store_test_results:
+          path: ../target/surefire
+
+workflows:
+  analyze-my-code:
+    jobs:
+      - auto-create-config
