@@ -1,3 +1,7 @@
+/**
+ * @file PassengerTest.java
+ * @brief Test cases for the Passenger class.
+ */
 package es.ull.passengers;
 import es.ull.flights.Flight;
 
@@ -5,18 +9,26 @@ import es.ull.passengers.Passenger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * @brief Test class for the Flight class.
+ */
 class FlightTest {
     private Passenger passenger;
     private Flight flight;
     
-
+    
+    /**
+     * @brief Setup method to initialize a Flight and Passenger object before each test.
+     */
     @BeforeEach
     void setUp() {
         // Initialize a Flight and Passenger object before each test
         flight = new Flight("AB123", 50);
         passenger = new Passenger("ID123", "John Doe", "US");
     }
+    /**
+     * @brief Test case for creating a Passenger with an invalid country code.
+     */
     @Test
     void testInvalidCountryCode() {
         assertThrows(RuntimeException.class, () -> new Passenger("ID456", "Jane Doe", "XX"));
@@ -55,7 +67,9 @@ class FlightTest {
         // Assert that the passenger is not in the new flight
         //assertNull(passenger.getFlight());
     //}
-
+    /**
+     * @brief Test case for joining a flight after being removed from the previous flight.
+     */
     @Test
     void testJoinFlightWithRemovedPassengerSuccess() {
         Flight otherFlight = new Flight("OP345", 25);
@@ -70,18 +84,24 @@ class FlightTest {
 
         assertEquals(newFlight, passenger.getFlight());
     }
-    //pruebas nuevas
-
+   
+    /**
+     * @brief Test case for getting the flight number.
+     */
     @Test
     void testGetFlightNumber() {
         assertEquals("AB123", flight.getFlightNumber());
     }
-
+    /**
+     * @brief Test case for getting the number of passengers in a flight.
+     */
     @Test
     void testGetNumberOfPassengers() {
         assertEquals(0, flight.getNumberOfPassengers());
     }
-
+    /**
+     * @brief Test case for adding a passenger to a flight.
+     */
     @Test
     void testAddPassenger() {
         Passenger passenger = new Passenger("ID123", "John Doe", "US");
@@ -89,7 +109,9 @@ class FlightTest {
         assertEquals(1, flight.getNumberOfPassengers());
         assertEquals(flight, passenger.getFlight());
     }
-
+    /**
+     * @brief Test case for removing a passenger from a flight.
+     */
     @Test
     void testRemovePassenger() {
         Passenger passenger = new Passenger("ID123", "John Doe", "US");
@@ -98,12 +120,18 @@ class FlightTest {
         assertEquals(0, flight.getNumberOfPassengers());
         assertNull(passenger.getFlight());
     }
-
+    
+    /**
+     * @brief Test case for creating a flight with an invalid flight number.
+     */
     @Test
     void testInvalidFlightNumber() {
         assertThrows(RuntimeException.class, () -> new Flight("InvalidNumber", 100));
     }
-
+    
+    /**
+     * @brief Test case for adding a passenger to a flight with not enough seats.
+     */
     @Test
     void testNotEnoughSeats() {
         Flight smallFlight = new Flight("XY456", 1);
@@ -112,24 +140,34 @@ class FlightTest {
         smallFlight.addPassenger(passenger1);
         assertThrows(RuntimeException.class, () -> smallFlight.addPassenger(passenger2));
     }
+    
+    /**
+     * @brief Test case for joining a flight with a null reference.
+     */
      @Test
     void testJoinFlightWithNullFlight() {
         passenger.joinFlight(null);
         assertNull(passenger.getFlight());
     }
-
+    /**
+     * @brief Test case for setting a flight with a null reference.
+     */
     @Test
     void testSetFlightWithNullFlight() {
         passenger.setFlight(null);
         assertNull(passenger.getFlight());
     }
-
+    /**
+     * @brief Test case for setting a flight for a passenger.
+     */
     @Test
     void testSetFlight() {
         passenger.setFlight(flight);
         assertEquals(flight, passenger.getFlight());
     }
-
+    /**
+     * @brief Test case for joining a new flight after being removed from the previous flight.
+     */
     @Test
     void testJoinFlightWithRemovedPassenger() {
         Flight otherFlight = new Flight("CD456", 30);
@@ -144,7 +182,9 @@ class FlightTest {
 
         assertEquals(newFlight, passenger.getFlight());
     }
-
+    /**
+     * @brief Test case for the toString method.
+     */
     @Test
     void testToString() {
         String expectedString = "Passenger John Doe with identifier: ID123 from US";
